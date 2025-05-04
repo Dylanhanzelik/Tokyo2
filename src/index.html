@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Trip Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5a1FoKmbmQ1djPh6pRx7oiknBf3ACNOE&callback=initMap" async defer></script>
+</head>
+<body>
+    <header>
+        <h1>Tokyo Trip Planner</h1>
+        <p>Plan your perfect trip to Tokyo with our curated list of top activities</p>
+        <div class="user-account">
+            <div id="user-status">
+                <button id="login-btn">Login</button>
+                <button id="register-btn">Register</button>
+            </div>
+            <div id="user-profile" style="display: none;">
+                <span id="username-display"></span>
+                <button id="logout-btn">Logout</button>
+                <button id="saved-plans-btn">My Plans</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Mobile App Banner -->
+        <div class="mobile-app-banner">
+            <h3>Get the Tokyo Trip Planner Mobile App</h3>
+            <p>Plan your Tokyo trip on the go with our mobile app. Access your plans offline, get real-time notifications, and more!</p>
+            <div class="app-store-buttons">
+                <a href="#" class="app-store-button">App Store</a>
+                <a href="#" class="app-store-button">Google Play</a>
+            </div>
+        </div>
+
+        <section class="intro">
+            <h2>Welcome to Tokyo!</h2>
+            <p>Tokyo, Japan's busy capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers to historic temples. Explore the city's top attractions and create unforgettable memories.</p>
+
+            <!-- ChatGPT Question Box -->
+            <div class="chatgpt-box">
+                <h3>Ask ChatGPT About Tokyo</h3>
+                <div class="chatgpt-form">
+                    <textarea id="chatgpt-question" placeholder="Ask any question about Tokyo..."></textarea>
+                    <button id="chatgpt-submit">Ask ChatGPT</button>
+                </div>
+                <div id="chatgpt-response" class="chatgpt-response">
+                    <p>Your answers will appear here...</p>
+                </div>
+            </div>
+
+            <!-- Weather Forecast Section -->
+            <div class="weather-forecast">
+                <h3>Tokyo Weather Forecast</h3>
+                <div id="weather-container">
+                    <div class="weather-loading">Loading weather information...</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="filters">
+            <h2>Filter Activities</h2>
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="category-filter">Category:</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <!-- Categories will be loaded from JavaScript -->
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="price-filter">Price Range:</label>
+                    <select id="price-filter">
+                        <option value="all">All Prices</option>
+                        <option value="free">Free</option>
+                        <option value="cheap">¥1 - ¥3,000</option>
+                        <option value="moderate">¥3,001 - ¥8,000</option>
+                        <option value="expensive">¥8,001+</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="search-filter">Search:</label>
+                    <input type="text" id="search-filter" placeholder="Search activities...">
+                </div>
+                <button id="apply-filters">Apply Filters</button>
+                <button id="reset-filters">Reset</button>
+            </div>
+        </section>
+
+        <section class="activities">
+            <h2>Top Activities in Tokyo</h2>
+            <div class="activities-container" id="activities-list">
+                <!-- Activities will be loaded from JavaScript -->
+            </div>
+        </section>
+
+        <section class="adult-entertainment">
+            <h2>Adult Entertainment Near Shinjuku Warm House</h2>
+            <div class="activities-container" id="adult-entertainment-list">
+                <!-- Adult entertainment venues will be loaded from JavaScript -->
+            </div>
+        </section>
+
+        <section class="top-10-lists">
+            <h2>Top 10 Lists</h2>
+            <div class="top-10-tabs">
+                <button class="top-10-tab active" data-list="soaplands">Top 10 Soaplands</button>
+                <button class="top-10-tab" data-list="clubs">Top 10 Clubs</button>
+                <button class="top-10-tab" data-list="pink-salons">Top 10 Pink Salons</button>
+                <button class="top-10-tab" data-list="bars">Top 10 Bars in Shibuya</button>
+            </div>
+            <div class="top-10-content">
+                <div class="top-10-list active" id="soaplands-list">
+                    <!-- Top 10 soaplands will be loaded from JavaScript -->
+                </div>
+                <div class="top-10-list" id="clubs-list">
+                    <!-- Top 10 clubs will be loaded from JavaScript -->
+                </div>
+                <div class="top-10-list" id="pink-salons-list">
+                    <!-- Top 10 pink salons will be loaded from JavaScript -->
+                </div>
+                <div class="top-10-list" id="bars-list">
+                    <!-- Top 10 bars in Shibuya will be loaded from JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <section class="planner">
+            <h2>Your Trip Planner</h2>
+            <div class="planner-controls">
+                <button id="save-plan">Save Plan</button>
+                <button id="clear-planner">Clear Planner</button>
+                <button id="share-plan">Share Plan</button>
+                <div class="plan-name-container">
+                    <input type="text" id="plan-name" placeholder="Plan Name">
+                </div>
+            </div>
+            <div class="planner-tabs">
+                <button class="tab-btn active" data-tab="activities">Activities</button>
+                <button class="tab-btn" data-tab="itinerary">Day-by-Day Itinerary</button>
+                <button class="tab-btn" data-tab="map">Map View</button>
+                <button class="tab-btn" data-tab="budget">Budget Tracker</button>
+            </div>
+            <div class="planner-content">
+                <div class="tab-content active" id="activities-tab">
+                    <div class="planner-container">
+                        <div class="selected-activities">
+                            <h3>Selected Activities</h3>
+                            <ul id="selected-activities-list">
+                                <!-- Selected activities will appear here -->
+                            </ul>
+                        </div>
+                        <div class="trip-summary">
+                            <h3>Trip Summary</h3>
+                            <p>Total Activities: <span id="total-activities">0</span></p>
+                            <p>Total Cost: ¥<span id="total-cost">0</span> ($<span id="total-cost-usd">0</span> USD)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="itinerary-tab">
+                    <div class="itinerary-controls">
+                        <button id="add-day">Add Day</button>
+                        <select id="day-selector">
+                            <option value="all">All Days</option>
+                            <!-- Days will be added dynamically -->
+                        </select>
+                    </div>
+                    <div id="itinerary-container">
+                        <!-- Day-by-day itinerary will be displayed here -->
+                    </div>
+                </div>
+                <div class="tab-content" id="map-tab">
+                    <div class="map-controls">
+                        <button id="show-routes-btn">Show Transportation Routes</button>
+                        <select id="transport-mode">
+                            <option value="TRANSIT">Public Transit</option>
+                            <option value="WALKING">Walking</option>
+                            <option value="BICYCLING">Bicycling</option>
+                        </select>
+                    </div>
+                    <div id="map-container">
+                        <!-- Map will be displayed here -->
+                    </div>
+                    <div id="directions-panel">
+                        <!-- Directions will be displayed here -->
+                    </div>
+                </div>
+                <div class="tab-content" id="budget-tab">
+                    <div class="budget-controls">
+                        <div class="budget-input">
+                            <label for="total-budget">Total Budget (¥):</label>
+                            <input type="number" id="total-budget" min="0" step="1000" placeholder="Enter your total budget">
+                            <button id="set-budget-btn">Set Budget</button>
+                        </div>
+                        <div class="expense-input">
+                            <label for="expense-amount">Add Expense:</label>
+                            <input type="number" id="expense-amount" min="0" placeholder="Amount (¥)">
+                            <input type="text" id="expense-description" placeholder="Description">
+                            <select id="expense-category">
+                                <option value="activities">Activities</option>
+                                <option value="accommodation">Accommodation</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="food">Food & Drinks</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <button id="add-expense-btn">Add</button>
+                        </div>
+                    </div>
+                    <div class="budget-summary">
+                        <div class="budget-overview">
+                            <h3>Budget Overview</h3>
+                            <div class="budget-progress">
+                                <div class="progress-bar">
+                                    <div id="budget-progress-fill"></div>
+                                </div>
+                                <div class="budget-stats">
+                                    <p>Total Budget: ¥<span id="budget-total">0</span></p>
+                                    <p>Spent: ¥<span id="budget-spent">0</span></p>
+                                    <p>Remaining: ¥<span id="budget-remaining">0</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="budget-breakdown">
+                            <h3>Expense Breakdown</h3>
+                            <div id="expense-chart">
+                                <!-- Expense chart will be displayed here -->
+                                <div class="expense-categories">
+                                    <div class="expense-category" data-category="activities">
+                                        <div class="category-color" style="background-color: #e91e63;"></div>
+                                        <div class="category-name">Activities</div>
+                                        <div class="category-amount">¥<span id="activities-amount">0</span></div>
+                                    </div>
+                                    <div class="expense-category" data-category="accommodation">
+                                        <div class="category-color" style="background-color: #2196F3;"></div>
+                                        <div class="category-name">Accommodation</div>
+                                        <div class="category-amount">¥<span id="accommodation-amount">0</span></div>
+                                    </div>
+                                    <div class="expense-category" data-category="transportation">
+                                        <div class="category-color" style="background-color: #4CAF50;"></div>
+                                        <div class="category-name">Transportation</div>
+                                        <div class="category-amount">¥<span id="transportation-amount">0</span></div>
+                                    </div>
+                                    <div class="expense-category" data-category="food">
+                                        <div class="category-color" style="background-color: #FF9800;"></div>
+                                        <div class="category-name">Food & Drinks</div>
+                                        <div class="category-amount">¥<span id="food-amount">0</span></div>
+                                    </div>
+                                    <div class="expense-category" data-category="shopping">
+                                        <div class="category-color" style="background-color: #9C27B0;"></div>
+                                        <div class="category-name">Shopping</div>
+                                        <div class="category-amount">¥<span id="shopping-amount">0</span></div>
+                                    </div>
+                                    <div class="expense-category" data-category="other">
+                                        <div class="category-color" style="background-color: #607D8B;"></div>
+                                        <div class="category-name">Other</div>
+                                        <div class="category-amount">¥<span id="other-amount">0</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expense-list-container">
+                        <h3>Expense List</h3>
+                        <table id="expense-table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Amount (¥)</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="expense-list">
+                                <!-- Expenses will be listed here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for login/register -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="login">Login</button>
+                <button class="modal-tab" data-tab="register">Register</button>
+            </div>
+            <div class="modal-tab-content active" id="login-tab">
+                <h3>Login</h3>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">Username:</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+            <div class="modal-tab-content" id="register-tab">
+                <h3>Register</h3>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="register-username">Username:</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password:</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password">Confirm Password:</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for saved plans -->
+    <div id="plans-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>My Saved Plans</h3>
+            <div id="saved-plans-list">
+                <!-- Saved plans will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for adding reviews -->
+    <div id="review-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Add Review</h3>
+            <div id="review-activity-name"></div>
+            <form id="review-form" class="review-form">
+                <div class="rating-select">
+                    <label>Rating:</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star5" name="rating" value="5" required>
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reviewer-name">Your Name:</label>
+                    <input type="text" id="reviewer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="review-text">Your Review:</label>
+                    <textarea id="review-text" required></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="review-submit-btn">Submit Review</button>
+                    <button type="button" class="review-cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for sharing plans -->
+    <div id="share-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Share Your Trip Plan</h3>
+            <p>Share your Tokyo trip plan with friends and family!</p>
+
+            <div class="share-link-container">
+                <label for="share-link">Shareable Link:</label>
+                <div class="share-link-input">
+                    <input type="text" id="share-link" readonly>
+                    <button id="copy-link-btn">Copy</button>
+                </div>
+            </div>
+
+            <div class="social-share-buttons">
+                <h4>Share on Social Media:</h4>
+                <div class="social-buttons">
+                    <button class="social-btn facebook">Facebook</button>
+                    <button class="social-btn twitter">Twitter</button>
+                    <button class="social-btn whatsapp">WhatsApp</button>
+                    <button class="social-btn email">Email</button>
+                </div>
+            </div>
+
+            <div class="qr-code-container">
+                <h4>QR Code:</h4>
+                <div id="qr-code"></div>
+                <button id="download-qr-btn">Download QR Code</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 Tokyo Trip Planner. All rights reserved.</p>
+    </footer>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav-menu">
+        <div class="mobile-nav-item">
+            <div class="mobile-nav-icon">🏠</div>
+            <div class="mobile-nav-text">Home</div>
+        </div>
+        <div class="mobile-nav-item">
+            <div class="mobile-nav-icon">🔍</div>
+            <div class="mobile-nav-text">Search</div>
+        </div>
+        <div class="mobile-nav-item">
+            <div class="mobile-nav-icon">📝</div>
+            <div class="mobile-nav-text">Planner</div>
+        </div>
+        <div class="mobile-nav-item">
+            <div class="mobile-nav-icon">🗺️</div>
+            <div class="mobile-nav-text">Map</div>
+        </div>
+        <div class="mobile-nav-item">
+            <div class="mobile-nav-icon">👤</div>
+            <div class="mobile-nav-text">Account</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
