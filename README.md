@@ -117,7 +117,7 @@ GitHub Pages is a free hosting service provided by GitHub that allows you to hos
 5. Scroll down to the "GitHub Pages" section
 6. Select the branch you want to deploy (usually `main`)
 7. Click "Save"
-8. Your website will be available at `https://yourusername.github.io/tokyo-trip-planner/`
+8. Your website will be available at `https://github.com/Dylanhanzelik/Tokyo.git
 
 ### 2. Netlify (Free tier available)
 
