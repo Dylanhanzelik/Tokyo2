@@ -110,7 +110,7 @@ GitHub Pages is a free hosting service provided by GitHub that allows you to hos
    git init
    git add .
    git commit -m "Initial commit"
-   git remote add origin https://github.com/yourusername/tokyo-trip-planner.git
+   git remote add origin https://github.com/dylanhanzelik/tokyo-trip-planner.git
    git push -u origin main
    ```
 4. Go to your repository settings on GitHub
