@@ -82,6 +82,23 @@
                     </select>
                 </div>
                 <div class="filter-group">
+                    <label for="distance-filter">Distance from Warm House:</label>
+                    <select id="distance-filter">
+                        <option value="all">All Distances</option>
+                        <option value="very-close">Very Close (0-0.3 km)</option>
+                        <option value="close">Close (0.4-0.8 km)</option>
+                        <option value="moderate">Moderate (0.9-2 km)</option>
+                        <option value="far">Far (2+ km)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="credibility-filter">Credibility:</label>
+                    <select id="credibility-filter">
+                        <option value="all">All Venues</option>
+                        <option value="verified">Verified Only</option>
+                    </select>
+                </div>
+                <div class="filter-group">
                     <label for="search-filter">Search:</label>
                     <input type="text" id="search-filter" placeholder="Search activities...">
                 </div>

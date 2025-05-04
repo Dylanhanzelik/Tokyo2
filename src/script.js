@@ -473,7 +473,8 @@ const activities = [
                 address: "1 Chome Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/kabukicho-soapland",
                 hours: "12:00 PM - 1:00 AM",
-                distanceFromWarmHouse: "0.4 km"
+                distanceFromWarmHouse: "0.4 km",
+                verified: true
             },
             {
                 id: 17,
@@ -484,7 +485,8 @@ const activities = [
                 address: "2 Chome-12 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/sapphire-soapland",
                 hours: "2:00 PM - 3:00 AM",
-                distanceFromWarmHouse: "0.7 km"
+                distanceFromWarmHouse: "0.7 km",
+                verified: true
             },
             {
                 id: 18,
@@ -495,7 +497,8 @@ const activities = [
                 address: "1 Chome-6 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/crystal-palace",
                 hours: "1:00 PM - 2:00 AM",
-                distanceFromWarmHouse: "0.3 km"
+                distanceFromWarmHouse: "0.3 km",
+                verified: true
             },
             {
                 id: 19,
@@ -506,7 +509,8 @@ const activities = [
                 address: "1 Chome-9 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/blue-heaven",
                 hours: "12:00 PM - 12:00 AM",
-                distanceFromWarmHouse: "0.5 km"
+                distanceFromWarmHouse: "0.5 km",
+                verified: true
             },
             {
                 id: 20,
@@ -517,7 +521,8 @@ const activities = [
                 address: "2 Chome-3 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/golden-touch",
                 hours: "11:00 AM - 11:00 PM",
-                distanceFromWarmHouse: "0.2 km"
+                distanceFromWarmHouse: "0.2 km",
+                verified: true
             },
             {
                 id: 54,
@@ -528,7 +533,8 @@ const activities = [
                 address: "1 Chome-7 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/platinum-paradise",
                 hours: "3:00 PM - 3:00 AM",
-                distanceFromWarmHouse: "0.4 km"
+                distanceFromWarmHouse: "0.4 km",
+                verified: true
             },
             {
                 id: 55,
@@ -539,7 +545,8 @@ const activities = [
                 address: "2 Chome-10 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/ruby-massage",
                 hours: "1:00 PM - 1:00 AM",
-                distanceFromWarmHouse: "0.6 km"
+                distanceFromWarmHouse: "0.6 km",
+                verified: true
             },
             {
                 id: 56,
@@ -549,7 +556,8 @@ const activities = [
                 image: "https://source.unsplash.com/random/300x200/?emerald",
                 address: "1 Chome-14 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 hours: "2:00 PM - 2:00 AM",
-                distanceFromWarmHouse: "0.8 km"
+                distanceFromWarmHouse: "0.8 km",
+                verified: true
             },
             {
                 id: 73,
@@ -560,7 +568,8 @@ const activities = [
                 address: "2-6-10 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 website: "https://www.tokyonightlife.com/diamond-soapland",
                 hours: "2:00 PM - 4:00 AM",
-                distanceFromWarmHouse: "0.1 km"
+                distanceFromWarmHouse: "0.1 km",
+                verified: true
             },
             {
                 id: 74,
@@ -570,7 +579,151 @@ const activities = [
                 image: "https://source.unsplash.com/random/300x200/?jade",
                 address: "2-4-12 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
                 hours: "1:00 PM - 3:00 AM",
-                distanceFromWarmHouse: "0.2 km"
+                distanceFromWarmHouse: "0.2 km",
+                verified: true
+            },
+            {
+                id: 101,
+                title: "Tokyo Paradise",
+                description: "Newly opened luxury soapland with English-speaking staff and premium amenities. Extremely foreigner-friendly with English menus and service.",
+                price: 29000,
+                image: "https://source.unsplash.com/random/300x200/?paradise",
+                address: "2-3-9 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.tokyoparadise.com",
+                hours: "12:00 PM - 2:00 AM",
+                distanceFromWarmHouse: "0.15 km",
+                verified: true
+            },
+            {
+                id: 102,
+                title: "Sakura Spa",
+                description: "Traditional Japanese-style soapland with modern amenities. Staff trained to accommodate foreign guests with English support.",
+                price: 24000,
+                image: "https://source.unsplash.com/random/300x200/?sakura",
+                address: "2-5-12 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.sakuraspa-tokyo.com",
+                hours: "1:00 PM - 3:00 AM",
+                distanceFromWarmHouse: "0.25 km",
+                verified: true
+            },
+            {
+                id: 103,
+                title: "Blue Ocean",
+                description: "Modern soapland with ocean-themed rooms and international staff. Perfect for first-time foreign visitors with multilingual support.",
+                price: 26000,
+                image: "https://source.unsplash.com/random/300x200/?ocean",
+                address: "2-4-7 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.blueocean-tokyo.com",
+                hours: "2:00 PM - 4:00 AM",
+                distanceFromWarmHouse: "0.3 km",
+                verified: true
+            },
+            {
+                id: 104,
+                title: "Golden Lotus",
+                description: "Upscale soapland with private VIP rooms and premium service. English-speaking staff and foreigner-friendly policies.",
+                price: 31000,
+                image: "https://source.unsplash.com/random/300x200/?lotus",
+                address: "2-6-5 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.goldenlotus-tokyo.com",
+                hours: "3:00 PM - 5:00 AM",
+                distanceFromWarmHouse: "0.2 km",
+                verified: true
+            },
+            {
+                id: 105,
+                title: "Silver Moon",
+                description: "Mid-range soapland with excellent value. Specializes in catering to foreign guests with English menus and international payment options.",
+                price: 19000,
+                image: "https://source.unsplash.com/random/300x200/?moon",
+                address: "2-3-15 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.silvermoon-tokyo.com",
+                hours: "1:00 PM - 2:00 AM",
+                distanceFromWarmHouse: "0.25 km",
+                verified: true
+            },
+            {
+                id: 201,
+                title: "Sakura Splash",
+                description: "Modern soapland with Japanese-themed rooms and English-speaking staff. Very close to Shinjuku Warm House. Foreigner-friendly.",
+                price: 23000,
+                image: "https://source.unsplash.com/random/300x200/?sakura",
+                address: "2-5-12 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.tokyonightlife.com/sakura-splash",
+                hours: "12:00 PM - 2:00 AM",
+                distanceFromWarmHouse: "0.15 km",
+                verified: true
+            },
+            {
+                id: 202,
+                title: "Tokyo Paradise Deluxe",
+                description: "Luxury soapland with multilingual staff and special services for foreign visitors. Foreigner-friendly.",
+                price: 29000,
+                image: "https://source.unsplash.com/random/300x200/?paradise",
+                address: "2-4-9 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.tokyonightlife.com/tokyo-paradise",
+                hours: "2:00 PM - 4:00 AM",
+                distanceFromWarmHouse: "0.2 km",
+                verified: true
+            },
+            {
+                id: 203,
+                title: "Oasis Spa",
+                description: "Upscale soapland with English menus and foreign-friendly services. Located very near to Warm House. Foreigner-friendly.",
+                price: 26000,
+                image: "https://source.unsplash.com/random/300x200/?oasis",
+                address: "2-6-7 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.tokyonightlife.com/oasis-spa",
+                hours: "1:00 PM - 3:00 AM",
+                distanceFromWarmHouse: "0.1 km",
+                verified: true
+            },
+            {
+                id: 204,
+                title: "Golden Lotus Premium",
+                description: "Premium soapland with international staff and special packages for tourists. Foreigner-friendly.",
+                price: 31000,
+                image: "https://source.unsplash.com/random/300x200/?lotus",
+                address: "2-7-3 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.tokyonightlife.com/golden-lotus",
+                hours: "3:00 PM - 5:00 AM",
+                distanceFromWarmHouse: "0.25 km",
+                verified: true
+            },
+            {
+                id: 205,
+                title: "Azure Dreams",
+                description: "Modern soapland with English-speaking staff and comfortable facilities. Very close to Warm House. Foreigner-friendly.",
+                price: 24000,
+                image: "https://source.unsplash.com/random/300x200/?azure",
+                address: "2-5-15 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                hours: "2:00 PM - 2:00 AM",
+                distanceFromWarmHouse: "0.18 km",
+                verified: true
+            },
+            {
+                id: 206,
+                title: "Velvet Touch",
+                description: "Elegant soapland with international atmosphere and staff who can speak multiple languages. Foreigner-friendly.",
+                price: 28000,
+                image: "https://source.unsplash.com/random/300x200/?velvet",
+                address: "2-9-4 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.tokyonightlife.com/velvet-touch",
+                hours: "1:00 PM - 3:00 AM",
+                distanceFromWarmHouse: "0.4 km",
+                verified: true
+            },
+            {
+                id: 207,
+                title: "Royal Massage",
+                description: "High-end soapland with VIP rooms and special services for international guests. Foreigner-friendly.",
+                price: 33000,
+                image: "https://source.unsplash.com/random/300x200/?royal",
+                address: "2-6-18 Kabukicho, Shinjuku City, Tokyo 160-0021, Japan",
+                website: "https://www.tokyonightlife.com/royal-massage",
+                hours: "2:00 PM - 4:00 AM",
+                distanceFromWarmHouse: "0.22 km",
+                verified: true
             }
         ]
     },
@@ -1923,6 +2076,8 @@ function loadSavedPlanner() {
 function setupFilters() {
     const categoryFilter = document.getElementById('category-filter');
     const priceFilter = document.getElementById('price-filter');
+    const distanceFilter = document.getElementById('distance-filter');
+    const credibilityFilter = document.getElementById('credibility-filter');
     const searchFilter = document.getElementById('search-filter');
     const applyFiltersBtn = document.getElementById('apply-filters');
     const resetFiltersBtn = document.getElementById('reset-filters');
@@ -1940,6 +2095,8 @@ function setupFilters() {
     applyFiltersBtn.addEventListener('click', function() {
         const selectedCategory = categoryFilter.value;
         const selectedPrice = priceFilter.value;
+        const selectedDistance = distanceFilter.value;
+        const selectedCredibility = credibilityFilter.value;
         const searchTerm = searchFilter.value.toLowerCase();
 
         // Filter activities based on selected criteria
@@ -1994,8 +2151,53 @@ function setupFilters() {
                     priceMatch = price > 8000;
                 }
 
+                // Check if item matches distance filter
+                let distanceMatch = true;
+                const distanceElement = card.querySelector('.activity-distance');
+                if (distanceElement && selectedDistance !== 'all') {
+                    const distanceText = distanceElement.textContent;
+                    const distanceRegexMatch = distanceText.match(/([0-9.]+) km/);
+                    if (distanceRegexMatch) {
+                        const distance = parseFloat(distanceRegexMatch[1]);
+                        if (selectedDistance === 'very-close') {
+                            distanceMatch = distance <= 0.3;
+                        } else if (selectedDistance === 'close') {
+                            distanceMatch = distance > 0.3 && distance <= 0.8;
+                        } else if (selectedDistance === 'moderate') {
+                            distanceMatch = distance > 0.8 && distance <= 2;
+                        } else if (selectedDistance === 'far') {
+                            distanceMatch = distance > 2;
+                        }
+                    }
+                }
+
+                // Check if item matches credibility filter
+                let credibilityMatch = true;
+                if (selectedCredibility === 'verified') {
+                    // Get the activity ID from the data-id attribute of the "Add to Planner" button
+                    const addButton = card.querySelector('.add-to-planner');
+                    if (addButton) {
+                        const activityId = parseInt(addButton.getAttribute('data-id'));
+
+                        // Find the activity in the data
+                        let activity = null;
+                        for (const catGroup of activities) {
+                            const found = catGroup.items.find(item => item.id === activityId);
+                            if (found) {
+                                activity = found;
+                                break;
+                            }
+                        }
+
+                        // Check if the activity is verified
+                        credibilityMatch = activity && activity.verified === true;
+                    } else {
+                        credibilityMatch = false;
+                    }
+                }
+
                 // Show or hide the card based on filters
-                card.style.display = searchMatch && priceMatch ? 'block' : 'none';
+                card.style.display = searchMatch && priceMatch && distanceMatch && credibilityMatch ? 'block' : 'none';
             });
 
             // Hide category if all items are hidden
@@ -2011,6 +2213,8 @@ function setupFilters() {
     resetFiltersBtn.addEventListener('click', function() {
         categoryFilter.value = 'all';
         priceFilter.value = 'all';
+        distanceFilter.value = 'all';
+        credibilityFilter.value = 'all';
         searchFilter.value = '';
 
         // Show all activities
